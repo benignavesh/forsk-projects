@@ -102,4 +102,13 @@ Score_forest = classifier1.score(features_test, labels_test)
 '''
 99.04% using Random Forest Classifier
 '''
-
+#using SVM
+from sklearn.svm import SVC
+svm_model_linear = SVC(kernel = 'linear', C = 1).fit(features_train, labels_train)
+svm_predictions = svm_model_linear.predict(features_test)
+ 
+# creating a confusion matrix
+cm = confusion_matrix(labels_test, svm_predictions)
+# model accuracy for X_test  
+Score_svm = svm_model_linear.score(featues_test, labels_test)
+ 
